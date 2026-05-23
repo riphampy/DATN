@@ -1,5 +1,5 @@
 import HTTP from "./httpService";
-import { baseApiUrl } from "../config.json";
+import { baseApiUrl } from "../config.js";
 
 // set up Query String
 const apiEndpoint = baseApiUrl + "/calculationUnit";

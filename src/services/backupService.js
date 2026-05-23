@@ -1,11 +1,11 @@
 import HTTP from "./httpService";
-import { baseApiUrl } from "../config.json";
+import { baseApiUrl } from "../config.js";
 
 // set up Query String
 const apiEndpoint = baseApiUrl + "/system/backup";
 const getAllQuery = apiEndpoint + ":fetchAllVersion";
 const getBackup = baseApiUrl + "/system/restoreDatabase?versionBackup=";
-const restoreQuery = baseApiUrl + "/system/backup:createBackup"
+const restoreQuery = baseApiUrl + "/system/backup:createBackup";
 
 HTTP.handleProtectedAPI();
 
@@ -19,8 +19,6 @@ export function Backup(position) {
 export function Restore() {
   return HTTP.GET(restoreQuery);
 }
-
-
 
 export default {
   getAllVersionBackup,

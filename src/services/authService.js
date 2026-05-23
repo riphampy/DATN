@@ -1,5 +1,5 @@
 import HTTP from "./httpService";
-import { baseApiUrl } from "../config.json";
+import { baseApiUrl } from "../config.js";
 
 const apiEndpoint = baseApiUrl + "/auth/login";
 const userKey = "user";
@@ -11,7 +11,6 @@ export async function login(userLogin) {
   if (user.data.token) {
     localStorage.removeItem(userKey);
     localStorage.setItem(userKey, JSON.stringify(user.data));
-   
   }
   return user.meta;
 }
@@ -32,10 +31,9 @@ export function getCurrentUser() {
 export function isLoggedIn() {
   try {
     const user = JSON.parse(localStorage.getItem(userKey));
-    if (user){
+    if (user) {
       return true;
-    }else
-    return false;
+    } else return false;
   } catch (ex) {
     return false;
   }
@@ -44,15 +42,13 @@ export function isLoggedIn() {
 export function getRoles() {
   try {
     const user = JSON.parse(localStorage.getItem(userKey));
-    if (user){
+    if (user) {
       return user.roles;
-    }else
-    return [];
+    } else return [];
   } catch (ex) {
     return [];
   }
 }
-
 
 export default {
   login,
